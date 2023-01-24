@@ -9,10 +9,18 @@ def eject_disk():
     time.sleep(10)
     ctypes.windll.WINMM.mciSendStringW(u"set cdaudio door open", None, 0, None)
 
-#ws = Tk()
-#ws.title('Python Guides')
-#ws.geometry('300x200')
-#ws.config(bg='#5FB691')
+ws = Tk()
+
+#top_box = Toplevel(ws)
+ws.title('Python Guides')
+ws.geometry('300x200')
+width = 300
+height = 150
+x = int(ws.winfo_screenwidth()/2 - width/2)
+y = int(ws.winfo_screenheight()/2 - height/2)
+ws.geometry("+{}+{}".format(x, y))
+ws.config(bg='#5FB691')
+
 def format_cd(driver):
     os.system(f'cmd /c "format {driver}: /y"')
 
