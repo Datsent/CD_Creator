@@ -21,7 +21,7 @@ To run this project, you will need to add the following environment variables to
 
 `FILE` - Path of data file. Default is `C:\\CD_Creator\\sn.txt`
 
-`DSC_PATH` - Path to serch area for burn files
+`DSC_PATH` - Path to search area for burn files
 
 
 
