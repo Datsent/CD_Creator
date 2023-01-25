@@ -1,2 +1,3 @@
 CD_LETTER = 'E'
 FILE = 'C:\\CD_Creator\\sn.txt'
+DSC_PATH = 'U:\\X-RAY\\DAGE-X-RAY\\MISRAD HABITACHON'

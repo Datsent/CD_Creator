@@ -6,13 +6,13 @@ from tkinter import *
 
 def eject_disk():
     messagebox.showinfo('information', 'הצריבה הסתיימה ')
-    time.sleep(10)
+    time.sleep(5)
     ctypes.windll.WINMM.mciSendStringW(u"set cdaudio door open", None, 0, None)
 
 ws = Tk()
 
 #top_box = Toplevel(ws)
-ws.title('Python Guides')
+ws.title('CD-Creator')
 ws.geometry('300x200')
 width = 300
 height = 150
@@ -36,10 +36,10 @@ def msg1():
     messagebox.askyesno('Yes|No', 'Do you want to proceed?')
     messagebox.askretrycancel('retry', 'Failed! want to try again?')
 def find_file(sn, wo):
-    for folder in glob.glob(f'U:\\X-RAY\\DAGE-X-RAY\\MISRAD HABITACHON\\*{wo}*\\CD*'):
+    for folder in glob.glob(f'{DSC_PATH}\\*{wo}*\\CD*'):
         print(folder)
-        if glob.glob(f'U:\\X-RAY\\DAGE-X-RAY\\MISRAD HABITACHON\\*{wo}*\\CD*\\*{sn}*'):
-            for file in glob.glob(f'U:\\X-RAY\\DAGE-X-RAY\\MISRAD HABITACHON\\*{wo}*\\CD*\\*{sn}*'):
+        if glob.glob(f'{DSC_PATH}\\*{wo}*\\CD*\\*{sn}*'):
+            for file in glob.glob(f'{DSC_PATH}\\*{wo}*\\CD*\\*{sn}*'):
                 print('Coping...')
                 print(file)
                 copy_file(file, f'{CD_LETTER}:\\')
@@ -51,7 +51,7 @@ def find_sn():
     file1 = open(FILE, 'r')
     Lines = file1.readlines()
     print(Lines[0].strip())
-    if glob.glob(f'U:\\X-RAY\\DAGE-X-RAY\\MISRAD HABITACHON\\*{Lines[0].strip()}*\\CD*'):
+    if glob.glob(f'{DSC_PATH}\\*{Lines[0].strip()}*\\CD*'):
         for line in Lines[1:]:
             #print(f"{line.strip()}")
             #print(Lines[0].strip())
