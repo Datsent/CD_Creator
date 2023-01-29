@@ -56,8 +56,8 @@ def find_sn():
         print(Lines[0].strip())
         if glob.glob(f'{DSC_PATH}\\*{Lines[0].strip()}*\\CD*'):
             for line in Lines[1:]:
-                print(Lines[].strip())
                 if line != '\n':
+                    print(line.strip())
                     find_file(line.strip(), Lines[0].strip())
         else:
             messagebox.showinfo('information', f' {Lines[0].strip()} אין קבצים עבור פק"ע:')
