@@ -49,14 +49,15 @@ def find_file(sn, wo):
             messagebox.showinfo('information', f' {sn} אין קבצים עבור מעגל:')
 
 def find_sn():
-    file1 = open(FILE, 'r')
-    Lines = file1.readlines()
-    print(Lines[0].strip())
-    if glob.glob(f'{DSC_PATH}\\*{Lines[0].strip()}*\\CD*'):
-        for line in Lines[1:]:
-            find_file(line.strip(), Lines[0].strip())
-    else:
-        messagebox.showinfo('information', f' {Lines[0].strip()} אין קבצים עבור פק"ע:')
+    with open(FILE, 'r') as file1:
+        #file1 = open(FILE, 'r')
+        Lines = file1.readlines()
+        print(Lines[0].strip())
+        if glob.glob(f'{DSC_PATH}\\*{Lines[0].strip()}*\\CD*'):
+            for line in Lines[1:]:
+                find_file(line.strip(), Lines[0].strip())
+        else:
+            messagebox.showinfo('information', f' {Lines[0].strip()} אין קבצים עבור פק"ע:')
 
 def main():
     path = f'{CD_LETTER}:\\'
