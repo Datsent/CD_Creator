@@ -6,6 +6,7 @@ import time
 from tkinter import *
 from tkinter import messagebox
 from Utils.Utils import *
+from datetime import datetime
 
 def eject_disk():
     messagebox.showinfo('information', 'הצריבה הסתיימה ')
@@ -45,6 +46,11 @@ def find_file(sn, wo):
                 print('Coping...')
                 print(file)
                 copy_file(file, f'{CD_LETTER}:\\')
+                now = datetime.now()
+                datetime_string = now.strftime("%d-%m-%Y %H:%M:%S")
+                text_with_date_time = f"{datetime_string} - {file} - {wo}"
+                with open("Utils\\log.txt", "a") as file:
+                    file.write(text_with_date_time + "\n")
         else:
             messagebox.showinfo('information', f' {sn} אין קבצים עבור מעגל:')
 
@@ -59,6 +65,7 @@ def find_sn():
                 if line != '\n':
                     print(line.strip())
                     find_file(line.strip(), Lines[0].strip())
+
         else:
             messagebox.showinfo('information', f' {Lines[0].strip()} אין קבצים עבור פק"ע:')
 
