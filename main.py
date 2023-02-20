@@ -48,7 +48,7 @@ def find_file(sn, wo):
                 copy_file(file, f'{CD_LETTER}:\\')
                 now = datetime.now()
                 datetime_string = now.strftime("%d-%m-%Y %H:%M:%S")
-                text_with_date_time = f"{datetime_string} - {file} - {wo}"
+                text_with_date_time = f"{datetime_string} - {file}"
                 with open("Utils\\log.txt", "a") as file:
                     file.write(text_with_date_time + "\n")
         else:
