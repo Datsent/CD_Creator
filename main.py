@@ -39,6 +39,8 @@ def msg1():
     messagebox.askretrycancel('retry', 'Failed! want to try again?')
 
 def find_file(sn, wo):
+    now = datetime.now()
+    datetime_string = now.strftime("%d-%m-%Y %H:%M:%S")
     for folder in glob.glob(f'{DSC_PATH}\\*{wo}*\\CD*'):
         print(folder)
         if glob.glob(f'{DSC_PATH}\\*{wo}*\\CD*\\*{sn}*'):
@@ -46,13 +48,12 @@ def find_file(sn, wo):
                 print('Coping...')
                 print(file)
                 copy_file(file, f'{CD_LETTER}:\\')
-                now = datetime.now()
-                datetime_string = now.strftime("%d-%m-%Y %H:%M:%S")
-                text_with_date_time = f"{datetime_string} - {file}"
-                with open("Utils\\log.txt", "a") as file:
-                    file.write(text_with_date_time + "\n")
+                with open("Utils\\log.txt", "a") as file1:
+                    file1.write(f"{datetime_string} - {file}\n")
         else:
             messagebox.showinfo('information', f' {sn} אין קבצים עבור מעגל:')
+            with open("Utils\\log.txt", "a") as file1:
+                file1.write(f"{datetime_string} - {wo} - {sn} - NOT FOUND\n")
 
 def find_sn():
 
